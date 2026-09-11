@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>App Launch - Authorization Successful</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px; text-align: center; }
+    h1 { color: #2ca01c; }
+    .code-box { background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; padding: 12px; margin-top: 16px; font-family: monospace; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>鉁?Authorization Successful</h1>
+  <p>You have successfully connected this app to your QuickBooks Online account.</p>
+  <p><strong>Important:</strong> Copy the authorization code from your browser's address bar and paste it back to the application.</p>
+  <div class="code-box" id="codeDisplay"></div>
+  <p style="color: #57606a; margin-top: 24px;">You can safely close this window after copying the code.</p>
+  <script>
+    // Extract OAuth code from URL for easy copy
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    if (code) {
+      document.getElementById('codeDisplay').textContent = 'code=' + code;
+    }
+  </script>
+</body>
+</html>
